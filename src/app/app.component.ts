@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItunesService } from './service/itunes.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
-import { Items } from './model/itunesItems';
+import { Items } from './model/ItunesItems';
 
 @Component({
   selector: 'app-root',
