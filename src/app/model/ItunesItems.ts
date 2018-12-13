@@ -1,3 +1,4 @@
+// model for our get api request
 export class Items {
     constructor(public name: String,
     public viewUrl: String,

@@ -8,10 +8,12 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ItunesService {
+  // itunes api url
   url: String = 'https://itunes.apple.com/search';
 
   constructor(private http: HttpClient) { }
 
+  // http get request
   searchItunes(term: String): Observable<Items[]> {
     return this.http.get<Items[]>(`${this.url}?term=${term}&limit=24`)
                 .pipe(

@@ -16,15 +16,18 @@ export class AppComponent implements OnInit {
   items: Items[];
 
   constructor(private is: ItunesService, private fb: FormBuilder) {
+    // initialize form
     this.createForm();
   }
 
   ngOnInit() {
+    // listen on change for the select dropdown
     this.itunesForm.get('term').valueChanges
     .pipe(debounceTime(600)).subscribe(val => {
         if (val) {
           this.notFound = false;
           this.loading = true;
+          // http request
           this.is.searchItunes(val).subscribe(data => {
             setTimeout(() => {
               this.loading = false;
@@ -38,6 +41,7 @@ export class AppComponent implements OnInit {
     });
   }
 
+  // method to create form
   createForm() {
     this.itunesForm = this.fb.group({
       term: ['', Validators.required]
